@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World in One Day — Wednesday 18 November 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; }
+  body {
+    font-family: "Noto Sans", "DejaVu Sans", sans-serif;
+    background: #f6f1e3; color: #191919;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { width: 1024px; height: 1024px; padding: 10px 16px 8px; display: flex; flex-direction: column; }
+  .serif { font-family: "Noto Serif Display", "Noto Serif", serif; }
+
+  /* ---------- header ---------- */
+  .kicker {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.6px;
+    border-bottom: 3px solid #191919; padding-bottom: 3px;
+  }
+  .kicker .l { color: #b3231b; }
+  .kicker .r { color: #191919; }
+  .masthead {
+    text-align: center; font-size: 45px; font-weight: 900; line-height: 1.04;
+    letter-spacing: -0.5px; padding: 3px 0 1px;
+    border-bottom: 1px solid #191919;
+  }
+  .masthead .day { font-weight: 400; font-style: italic; font-size: 30px; display: block; letter-spacing: 2px; }
+  .stats {
+    display: flex; border-bottom: 1px solid #191919; padding: 3px 0 3px;
+  }
+  .stat { flex: 1; text-align: center; border-right: 1px solid #c9c0a8; padding: 0 6px; }
+  .stat:last-child { border-right: none; }
+  .stat b { display: block; font-size: 15px; line-height: 1.1; }
+  .stat span { font-size: 8.5px; color: #444; letter-spacing: 0.4px; text-transform: uppercase; }
+  .tally {
+    display: flex; justify-content: center; gap: 0; margin: 3px 0 4px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #fff;
+  }
+  .tally div { padding: 3px 10px; }
+
+  /* ---------- cards ---------- */
+  .leads { display: flex; gap: 10px; }
+  .lead { flex: 1; border-top: 2px solid #191919; padding-top: 5px; }
+  .lead img, .mini img { width: 100%; display: block; object-fit: cover; }
+  .lead img { height: 94px; }
+  .lead .svgart { height: 94px; width: 100%; display: block; }
+  .cap {
+    background: #191919; color: #f6f1e3; font-size: 8.5px; font-weight: 700;
+    letter-spacing: 1.2px; padding: 2px 6px; text-transform: uppercase;
+  }
+  .tag { font-size: 9.5px; font-weight: 700; letter-spacing: 0.8px; margin-top: 5px; }
+  .tag .num {
+    display: inline-block; color: #fff; width: 15px; height: 15px; line-height: 15px;
+    text-align: center; border-radius: 50%; font-size: 9px; margin-right: 4px;
+  }
+  .lead h2 { font-size: 20px; line-height: 1.12; font-weight: 900; margin: 3px 0 3px; }
+  .lead p, .mini p { font-size: 10.5px; line-height: 1.3; color: #222; }
+
+  .minis { display: flex; gap: 10px; margin-top: 4px; }
+  .mini { flex: 1; border-top: 2px solid #191919; padding-top: 4px; }
+  .mini img, .mini .svgart { height: 47px; }
+  .mini .svgart { width: 100%; display: block; background: #eef3f6; }
+  .mini h3 { font-size: 12.5px; line-height: 1.14; font-weight: 900; margin: 2px 0 2px; }
+  .mini p { font-size: 9.5px; line-height: 1.26; }
+  .mini .tag { margin-top: 4px; }
+
+  /* ---------- bottom: map + briefs ---------- */
+  .bottom { display: flex; gap: 12px; margin-top: 5px; flex: 1; min-height: 0; }
+  .mapbox { width: 348px; flex-shrink: 0; border-top: 2px solid #b3231b; padding-top: 4px; }
+  .mapbox h4, .briefs h4 {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.6px; color: #b3231b;
+    text-transform: uppercase; margin-bottom: 3px;
+  }
+  #map { width: 348px; height: 144px; background: #c3d9e6; position: relative; overflow: hidden; border: 1px solid #8fa9b8; }
+  .legend { font-size: 9px; color: #333; margin-top: 2px; line-height: 1.4; }
+  .legend b { color: #191919; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin: 0 2px 0 6px; vertical-align: middle; }
+  .briefs { flex: 1; border-top: 2px solid #191919; padding-top: 4px; min-width: 0; }
+  .briefcols { display: flex; gap: 14px; }
+  .briefcols ul { flex: 1; list-style: none; }
+  .briefcols li {
+    font-size: 9.5px; line-height: 1.22; padding: 1.5px 0;
+    border-bottom: 1px dotted #c9c0a8; display: flex; gap: 5px;
+  }
+  .briefcols li b {
+    flex-shrink: 0; font-size: 9.5px; color: #fff; background: #555; border-radius: 8px;
+    padding: 0 4px; height: 14px; line-height: 14px; margin-top: 1px; min-width: 20px; text-align: center;
+  }
+
+  /* ---------- footer ---------- */
+  .footer {
+    border-top: 2px solid #191919; margin-top: 4px; padding-top: 4px;
+    font-size: 9px; line-height: 1.45; color: #333;
+  }
+  .footer .check { color: #b3231b; font-weight: 700; }
+  .footer .src { font-size: 8.5px; color: #666; }
+
+  .c-europe { color: #2b5ea7; } .bg-europe { background: #2b5ea7; }
+  .c-me { color: #c66a1a; } .bg-me { background: #c66a1a; }
+  .c-asia { color: #7a4fa3; } .bg-asia { background: #7a4fa3; }
+  .c-africa { color: #2e7d4f; } .bg-africa { background: #2e7d4f; }
+  .c-americas { color: #b3231b; } .bg-americas { background: #b3231b; }
+  .c-oceania { color: #1f8a8a; } .bg-oceania { background: #1f8a8a; }
+  .c-world { color: #5a5a5a; } .bg-world { background: #5a5a5a; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kicker">
+    <span class="l">THE WORLD'S NEWS IN ONE PICTURE</span>
+    <span class="r">42 STORIES &middot; 7 REGIONS &middot; ONE DAY</span>
+  </div>
+
+  <div class="masthead serif">Wednesday 18 November 2026</div>
+
+  <div class="stats">
+    <div class="stat"><b>55</b><span>Bangladesh factories shut</span></div>
+    <div class="stat"><b>~300</b><span>arrested in Dhaka unrest</span></div>
+    <div class="stat"><b>1 light-day</b><span>Voyager 1's distance</span></div>
+    <div class="stat"><b>49 years</b><span>since Voyager 1 launched</span></div>
+    <div class="stat"><b>5+</b><span>killed in Ukraine strikes</span></div>
+    <div class="stat"><b>300,000</b><span>sign Hoekstra petition</span></div>
+  </div>
+
+  <div class="tally">
+    <div class="bg-europe">EUROPE 10</div>
+    <div class="bg-me">MIDDLE EAST 5</div>
+    <div class="bg-asia">ASIA 9</div>
+    <div class="bg-africa">AFRICA 2</div>
+    <div class="bg-americas">AMERICAS 11</div>
+    <div class="bg-oceania">OCEANIA 1</div>
+    <div class="bg-world">WORLD 4</div>
+  </div>
+
+  <div class="leads">
+    <div class="lead">
+      <svg class="svgart" viewBox="0 0 320 112" preserveAspectRatio="xMidYMid slice">
+        <rect width="320" height="112" fill="#1e2e4a"/>
+        <rect x="0" y="52" width="320" height="34" fill="#e6dcc4"/>
+        <line x1="0" y1="52" x2="320" y2="52" stroke="#c9a227" stroke-width="2"/>
+        <rect x="6" y="4" width="308" height="46" fill="#2a3d5f"/>
+        <g><rect x="14" y="8" width="58" height="36" fill="#fff" stroke="#999" stroke-width="0.6"/>
+        <rect x="14" y="8" width="58" height="5.2" fill="#b22234"/><rect x="14" y="18.4" width="58" height="5.2" fill="#b22234"/><rect x="14" y="28.8" width="58" height="5.2" fill="#b22234"/><rect x="14" y="39.2" width="58" height="4.8" fill="#b22234"/>
+        <rect x="14" y="8" width="24" height="19.5" fill="#3c3b6e"/>
+        <g fill="#fff"><circle cx="18" cy="12" r="1"/><circle cx="24" cy="12" r="1"/><circle cx="30" cy="12" r="1"/><circle cx="21" cy="16.5" r="1"/><circle cx="27" cy="16.5" r="1"/><circle cx="33" cy="16.5" r="1"/><circle cx="18" cy="21" r="1"/><circle cx="24" cy="21" r="1"/><circle cx="30" cy="21" r="1"/><circle cx="36" cy="12" r="1"/><circle cx="36" cy="21" r="1"/></g></g>
+        <g><rect x="92" y="8" width="58" height="36" fill="#de2910" stroke="#999" stroke-width="0.6"/>
+        <g fill="#ffde00"><path d="M100,14 l1.8,5.2 5.4,0 -4.4,3.2 1.7,5.2 -4.5,-3.2 -4.4,3.2 1.7,-5.2 -4.4,-3.2 5.4,0 z"/><circle cx="136" cy="16" r="1.3"/><circle cx="142" cy="22" r="1.3"/><circle cx="140" cy="30" r="1.3"/><circle cx="132" cy="34" r="1.3"/></g></g>
+        <g><rect x="170" y="8" width="58" height="36" fill="#fff" stroke="#999" stroke-width="0.6"/>
+        <rect x="170" y="8" width="58" height="5.2" fill="#b22234"/><rect x="170" y="18.4" width="58" height="5.2" fill="#b22234"/><rect x="170" y="28.8" width="58" height="5.2" fill="#b22234"/><rect x="170" y="39.2" width="58" height="4.8" fill="#b22234"/>
+        <rect x="170" y="8" width="24" height="19.5" fill="#3c3b6e"/>
+        <g fill="#fff"><circle cx="174" cy="12" r="1"/><circle cx="180" cy="12" r="1"/><circle cx="186" cy="12" r="1"/><circle cx="177" cy="16.5" r="1"/><circle cx="183" cy="16.5" r="1"/><circle cx="189" cy="16.5" r="1"/><circle cx="174" cy="21" r="1"/><circle cx="180" cy="21" r="1"/><circle cx="186" cy="21" r="1"/><circle cx="192" cy="12" r="1"/><circle cx="192" cy="21" r="1"/></g></g>
+        <g><rect x="248" y="8" width="58" height="36" fill="#ee1c25" stroke="#999" stroke-width="0.6"/>
+        <rect x="248" y="8" width="58" height="18" fill="#fff"/><rect x="248" y="26" width="58" height="18" fill="#0039a6"/>
+        <g fill="#fff"><circle cx="262" cy="26" r="2.4"/><circle cx="292" cy="26" r="2.4"/></g>
+        <rect x="274" y="14" width="12" height="24" fill="#0039a6"/></g>
+        <rect x="8" y="86" width="304" height="20" rx="2" fill="#4a2f18"/>
+        <rect x="8" y="86" width="304" height="5" rx="2" fill="#6b4a2a"/>
+        <g><circle cx="48" cy="66" r="9" fill="#e8c39e"/><path d="M32,86 Q48,58 64,86 Z" fill="#2c3e50"/></g>
+        <g><circle cx="126" cy="66" r="9" fill="#c68e5e"/><path d="M110,86 Q126,58 142,86 Z" fill="#4a3728"/></g>
+        <g><circle cx="204" cy="66" r="9" fill="#e8c39e"/><path d="M188,86 Q204,58 220,86 Z" fill="#5b2a2a"/></g>
+        <g><circle cx="282" cy="66" r="9" fill="#e8c39e"/><path d="M266,86 Q282,58 298,86 Z" fill="#2a4a5b"/></g>
+        <g fill="#fff"><path d="M44,72 L48,80 L52,72 Z"/><path d="M122,72 L126,80 L130,72 Z"/><path d="M200,72 L204,80 L208,72 Z"/><path d="M278,72 L282,80 L286,72 Z"/></g>
+        <g fill="#fff"><rect x="40" y="92" width="16" height="9" rx="1"/><rect x="118" y="92" width="16" height="9" rx="1"/><rect x="196" y="92" width="16" height="9" rx="1"/><rect x="274" y="92" width="16" height="9" rx="1"/></g>
+      </svg>
+      <div class="cap">The trilateral eve &middot; Shenzhen</div>
+      <div class="tag c-asia"><span class="num bg-asia">1</span>ASIA &middot; DIPLOMACY &middot; CONFIRMED &middot; AP</div>
+      <h2 class="serif">Xi greets Trump on the eve of the three-way summit</h2>
+      <p>Xi and Trump exchange warm words ahead of Thursday's meeting with Putin in Shenzhen; a trade truce tops the agenda.</p>
+    </div>
+    <div class="lead">
+      <svg class="svgart" viewBox="0 0 320 112" preserveAspectRatio="xMidYMid slice">
+        <rect width="320" height="112" fill="#123a5c"/>
+        <path d="M0,20 L60,14 L110,26 L150,18 L210,30 L260,22 L320,28 L320,112 L0,112 Z" fill="#c9b489"/>
+        <path d="M0,78 L70,70 L120,84 L190,74 L250,86 L320,78 L320,112 L0,112 Z" fill="#c9b489"/>
+        <rect x="0" y="30" width="320" height="46" fill="#1d6f9f" opacity="0.85"/>
+        <text x="10" y="24" font-family="Noto Sans, sans-serif" font-size="10" font-weight="700" fill="#e8dcc0" letter-spacing="1">PERSIAN GULF</text>
+        <text x="10" y="104" font-family="Noto Sans, sans-serif" font-size="10" font-weight="700" fill="#e8dcc0" letter-spacing="1">KUWAIT</text>
+        <g fill="#fff"><circle cx="120" cy="52" r="4"/><circle cx="170" cy="44" r="4"/><circle cx="215" cy="58" r="4"/></g>
+        <g fill="none" stroke="#ff5a3c" stroke-width="2"><circle cx="120" cy="52" r="10"/><circle cx="170" cy="44" r="10"/><circle cx="215" cy="58" r="10"/></g>
+        <g stroke="#ff5a3c" stroke-width="1.6"><line x1="120" y1="52" x2="150" y2="52"/><line x1="170" y1="44" x2="200" y2="44"/><line x1="215" y1="58" x2="245" y2="58"/></g>
+        <path d="M150,52 l14,-4 -3,4 3,4 z" fill="#ff5a3c"/><path d="M200,44 l14,-4 -3,4 3,4 z" fill="#ff5a3c"/><path d="M245,58 l14,-4 -3,4 3,4 z" fill="#ff5a3c"/>
+        <text x="310" y="104" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#ffb08a" text-anchor="end">DRONES REPORTED</text>
+      </svg>
+      <div class="cap">Gulf drone strikes &middot; Kuwait</div>
+      <div class="tag c-me"><span class="num bg-me">2</span>MIDDLE EAST &middot; GULF &middot; CLAIM &middot; REUTERS</div>
+      <h2 class="serif">Iran drones at Kuwait put the Gulf on alert</h2>
+      <p>Drones are reported over Kuwait; Gulf defences stand ready and oil steadies as the US warns Tehran against escalation.</p>
+    </div>
+    <div class="lead">
+      <svg class="svgart" viewBox="0 0 320 112" preserveAspectRatio="xMidYMid slice">
+        <rect width="320" height="112" fill="#f4ecd8"/>
+        <text x="16" y="42" font-family="Noto Sans, sans-serif" font-size="34" font-weight="900" fill="#2b5ea7">&euro;45bn</text>
+        <text x="16" y="62" font-family="Noto Sans, sans-serif" font-size="11" font-weight="700" fill="#191919" letter-spacing="1">EU LOAN FOR UKRAINE</text>
+        <text x="16" y="78" font-family="Noto Sans, sans-serif" font-size="10" fill="#444">Agreed in Brussels &middot; backed by frozen Russian assets</text>
+        <g><rect x="16" y="88" width="120" height="14" fill="#2b5ea7"/><rect x="140" y="88" width="90" height="14" fill="#7fa8c9"/><rect x="234" y="88" width="70" height="14" fill="#c9c0a8"/></g>
+        <text x="16" y="108" font-family="Noto Sans, sans-serif" font-size="8.5" font-weight="700" fill="#555">LOAN &nbsp;&nbsp;&middot;&nbsp;&nbsp; GRANTS &nbsp;&nbsp;&middot;&nbsp;&nbsp; 2027 TRANCHE</text>
+        <g><circle cx="292" cy="26" r="14" fill="none" stroke="#2b5ea7" stroke-width="2"/><g fill="#2b5ea7"><circle cx="292" cy="12" r="1.6"/><circle cx="304" cy="20" r="1.6"/><circle cx="300" cy="34" r="1.6"/><circle cx="284" cy="34" r="1.6"/><circle cx="280" cy="20" r="1.6"/></g></g>
+      </svg>
+      <div class="cap">EU backs Kyiv &middot; Brussels</div>
+      <div class="tag c-europe"><span class="num bg-europe">3</span>EUROPE &middot; ECONOMY &middot; CONFIRMED &middot; REUTERS</div>
+      <h2 class="serif">EU agrees a &euro;45bn loan to keep Ukraine funded</h2>
+      <p>Ministers sign off the package, backed by frozen Russian assets, as Kyiv warns its war budget runs dry next year.</p>
+    </div>
+  </div>
+
+  <div class="minis">
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#0b1026"/>
+        <g fill="#fff"><circle cx="20" cy="12" r="1.2"/><circle cx="60" cy="8" r="1"/><circle cx="110" cy="14" r="1.2"/><circle cx="160" cy="10" r="1"/><circle cx="185" cy="22" r="1.2"/><circle cx="40" cy="26" r="1"/><circle cx="90" cy="30" r="1"/><circle cx="140" cy="28" r="1"/></g>
+        <text x="10" y="24" font-family="Noto Sans, sans-serif" font-size="13" font-weight="900" fill="#ffd76a">1 LIGHT-DAY</text>
+        <text x="10" y="38" font-family="Noto Sans, sans-serif" font-size="8.5" font-weight="700" fill="#cdd7ff">25.9 BILLION KM FROM EARTH</text>
+        <text x="10" y="50" font-family="Noto Sans, sans-serif" font-size="8.5" font-weight="700" fill="#8fa3ff">49 YEARS AFTER LAUNCH</text>
+        <g><rect x="160" y="34" width="22" height="8" fill="#c9c0a8"/><line x1="182" y1="38" x2="196" y2="38" stroke="#c9c0a8" stroke-width="1.5"/><circle cx="158" cy="38" r="4" fill="#ffd76a"/></g>
+      </svg>
+      <div class="tag c-world"><span class="num bg-world">4</span>SPACE &middot; NASA</div>
+      <h3 class="serif">Voyager 1 reaches one light-day from Earth</h3>
+      <p>The farthest human object, 25.9bn km out, still phoning home at 49.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#1f2d36"/>
+        <text x="10" y="24" font-family="Noto Sans, sans-serif" font-size="17" font-weight="900" fill="#ffffff">1.5&#176;C</text>
+        <text x="10" y="40" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#ffb08a" letter-spacing="1">LIMIT</text>
+        <text x="10" y="53" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#ff7a45" letter-spacing="1">AT RISK</text>
+        <g stroke="#33454f" stroke-width="1"><line x1="76" y1="14" x2="192" y2="14"/><line x1="76" y1="30" x2="192" y2="30"/><line x1="76" y1="46" x2="192" y2="46"/></g>
+        <path d="M76,48 L96,42 L116,44 L136,32 L156,34 L176,20 L192,12 L192,58 L76,58 Z" fill="#ff7a45" opacity="0.18"/>
+        <polyline points="76,48 96,42 116,44 136,32 156,34 176,20 192,12" fill="none" stroke="#ff7a45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="192" cy="12" r="3.5" fill="#ff7a45"/>
+        <text x="192" y="58" font-family="Noto Sans, sans-serif" font-size="7.5" font-weight="700" fill="#8fa3ad" text-anchor="end">2026</text>
+      </svg>
+      <div class="tag c-world"><span class="num bg-world">5</span>GLOBAL &middot; CLIMATE &middot; AFP</div>
+      <h3 class="serif">COP31 draft splits talks as ministers take over</h3>
+      <p>Antalya text divides on a fossil-fuel phase-out; finance talks stall.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#e8e0c8"/>
+        <rect x="30" y="18" width="140" height="26" fill="#8a6d3b"/><rect x="30" y="18" width="140" height="6" fill="#5d4a26"/>
+        <rect x="44" y="8" width="10" height="12" fill="#5d4a26"/><rect x="146" y="8" width="10" height="12" fill="#5d4a26"/>
+        <g fill="#191919"><rect x="52" y="28" width="16" height="10"/><rect x="80" y="28" width="16" height="10"/><rect x="108" y="28" width="16" height="10"/><rect x="136" y="28" width="16" height="10"/></g>
+        <text x="100" y="56" font-family="Noto Sans, sans-serif" font-size="13" font-weight="900" fill="#b3231b" text-anchor="middle">55 SHUT</text>
+      </svg>
+      <div class="tag c-asia"><span class="num bg-asia">6</span>ASIA &middot; LABOUR &middot; CONFIRMED &middot; AFP</div>
+      <h3 class="serif">Bangladesh shuts 55 factories as unrest spreads</h3>
+      <p>Garment workers demand higher pay; ~300 arrested in Dhaka clashes.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#f4ecd8"/>
+        <text x="10" y="16" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#555" letter-spacing="1">DRONES FIRED / DOWNED</text>
+        <rect x="10" y="22" width="150" height="12" fill="#b3231b"/><text x="14" y="31" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#fff">141 FIRED</text>
+        <rect x="10" y="38" width="134" height="12" fill="#2b5ea7"/><text x="14" y="47" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#fff">126 DOWNED</text>
+        <text x="10" y="59" font-family="Noto Sans, sans-serif" font-size="8" fill="#555">Kyiv's overnight tally</text>
+      </svg>
+      <div class="tag c-europe"><span class="num bg-europe">7</span>EUROPE &middot; UKRAINE WAR &middot; CLAIM &middot; KYIV</div>
+      <h3 class="serif">Russia fires 141 drones; 5+ killed in Ukraine</h3>
+      <p>Kyiv says 126 were downed; strikes hit homes and power in the east.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#fdeceb"/>
+        <text x="10" y="22" font-family="Noto Sans, sans-serif" font-size="16" font-weight="900" fill="#b3231b">300,000</text>
+        <text x="10" y="36" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#191919">SIGN PETITION ON US ENVOY</text>
+        <text x="10" y="49" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#555">HOEKSTRA &middot; CANADA</text>
+        <rect x="10" y="53" width="180" height="5" fill="#e5c9c4"/><rect x="10" y="53" width="150" height="5" fill="#b3231b"/>
+      </svg>
+      <div class="tag c-americas"><span class="num bg-americas">8</span>AMERICAS &middot; POLITICS &middot; CONFIRMED</div>
+      <h3 class="serif">300,000 sign petition on US envoy Hoekstra</h3>
+      <p>Canadians protest the ambassador's remarks; Ottawa plays it down.</p>
+    </div>
+  </div>
+
+  <div class="minis">
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#eef3f6"/>
+        <text x="10" y="12" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#555" letter-spacing="1">INFLATION, OCTOBER</text>
+        <rect x="20" y="20" width="52" height="32" fill="#2b5ea7"/><rect x="90" y="16" width="52" height="36" fill="#7fa8c9"/>
+        <text x="46" y="40" font-family="Noto Sans, sans-serif" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">3.6%</text>
+        <text x="116" y="36" font-family="Noto Sans, sans-serif" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">4.0%</text>
+        <text x="46" y="59" font-family="Noto Sans, sans-serif" font-size="8" font-weight="700" fill="#555" text-anchor="middle">UK</text>
+        <text x="116" y="59" font-family="Noto Sans, sans-serif" font-size="8" font-weight="700" fill="#555" text-anchor="middle">EURO AREA</text>
+      </svg>
+      <div class="tag c-europe"><span class="num bg-europe">9</span>EUROPE &middot; ECONOMY &middot; CONFIRMED</div>
+      <h3 class="serif">UK inflation 3.6% as euro area hits 4.0%</h3>
+      <p>Price data dims hopes of a December rate cut in London and Frankfurt.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#f4ecd8"/>
+        <text x="100" y="24" font-family="Noto Sans, sans-serif" font-size="18" font-weight="900" fill="#191919" text-anchor="middle">251&ndash;11</text>
+        <text x="100" y="40" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#555" text-anchor="middle">CAUCUS VOTE</text>
+        <text x="100" y="53" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#2b5ea7" text-anchor="middle">JEFFRIES RE-ELECTED LEADER</text>
+      </svg>
+      <div class="tag c-americas"><span class="num bg-americas">10</span>AMERICAS &middot; POLITICS &middot; CONFIRMED &middot; AP</div>
+      <h3 class="serif">House Democrats re-elect Jeffries, 251&ndash;11</h3>
+      <p>The minority leader keeps his post; the party eyes the midterms.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#dfeaf2"/>
+        <path d="M100,31 m-4,-16 a20,20 0 1,1 -14,14 a14,14 0 1,1 10,-10 a8,8 0 1,1 -6,6" fill="none" stroke="#2b5ea7" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="100" cy="31" r="4" fill="#b3231b"/>
+        <text x="10" y="14" font-family="Noto Sans, sans-serif" font-size="9" font-weight="700" fill="#2b5ea7" letter-spacing="1">CYCLONE AKVAN</text>
+        <text x="190" y="56" font-family="Noto Sans, sans-serif" font-size="8.5" font-weight="700" fill="#333" text-anchor="end">204,070 EVACUATED</text>
+      </svg>
+      <div class="tag c-asia"><span class="num bg-asia">11</span>ASIA &middot; WEATHER &middot; CONFIRMED &middot; IMD</div>
+      <h3 class="serif">Cyclone Akvan nears India's east coast</h3>
+      <p>Odisha evacuates 204,070 as the very severe storm closes in.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#fdeceb"/>
+        <rect x="60" y="14" width="80" height="30" fill="#c9a227"/><rect x="60" y="14" width="80" height="8" fill="#8a6d3b"/>
+        <text x="100" y="34" font-family="Noto Sans, sans-serif" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">AID</text>
+        <text x="100" y="56" font-family="Noto Sans, sans-serif" font-size="11" font-weight="900" fill="#b3231b" text-anchor="middle">1.4M STILL HUNGRY</text>
+      </svg>
+      <div class="tag c-me"><span class="num bg-me">12</span>MIDDLE EAST &middot; GAZA &middot; UN</div>
+      <h3 class="serif">UN: 1.4 million in Gaza face acute hunger</h3>
+      <p>Winter strains aid as agencies warn the truce alone cannot feed Gaza.</p>
+    </div>
+    <div class="mini">
+      <svg class="svgart" viewBox="0 0 200 62" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="62" fill="#eef3f6"/>
+        <g stroke="#33454f" stroke-width="1"><line x1="20" y1="12" x2="190" y2="12"/><line x1="20" y1="26" x2="190" y2="26"/><line x1="20" y1="40" x2="190" y2="40"/></g>
+        <polyline points="20,44 50,38 80,42 110,30 140,34 170,22 190,26" fill="none" stroke="#2e7d4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="190" cy="26" r="3.5" fill="#2e7d4f"/>
+        <text x="10" y="58" font-family="Noto Sans, sans-serif" font-size="8.5" font-weight="700" fill="#555">WALL ST STEADIES AFTER NVIDIA SLIDE</text>
+      </svg>
+      <div class="tag c-americas"><span class="num bg-americas">13</span>AMERICAS &middot; MARKETS &middot; BLOOMBERG</div>
+      <h3 class="serif">Wall Street steadies after Nvidia's big quarter</h3>
+      <p>Stocks find footing a day after the chipmaker's $115.8bn sales report.</p>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="mapbox">
+      <h4>Where it happened</h4>
+      <div id="map"></div>
+      <div class="legend">
+        <b>Pins</b> stories 1&ndash;13 &middot; <b>dots</b> stories 14&ndash;42 &middot; 4, Voyager 1, is beyond the map.<br>
+        <span class="dot bg-americas"></span>Americas <span class="dot bg-europe"></span>Europe <span class="dot bg-me"></span>Middle East <span class="dot bg-asia"></span>Asia <span class="dot bg-africa"></span>Africa <span class="dot bg-oceania"></span>Oceania <span class="dot bg-world"></span>World
+      </div>
+    </div>
+    <div class="briefs">
+      <h4>Also on Wednesday 18 November &middot; stories 14&ndash;42</h4>
+      <div class="briefcols">
+        <ul>
+          <li><b class="bg-europe">14</b>Kyiv: power cuts after strikes on the energy grid</li>
+          <li><b class="bg-europe">15</b>Romania scrambles jets as a drone nears its border</li>
+          <li><b class="bg-europe">16</b>France: rail strikes snarl Paris commutes</li>
+          <li><b class="bg-europe">17</b>Germany: cabinet approves its 2027 budget draft</li>
+          <li><b class="bg-europe">18</b>UK: Bank holds rates as inflation hits 3.6%</li>
+          <li><b class="bg-europe">19</b>Italy: Meloni backs the EU loan for Kyiv</li>
+          <li><b class="bg-europe">20</b>EU: leaders set a December summit on defence</li>
+          <li><b class="bg-me">21</b>Israel: Knesset debates hostage-deal terms</li>
+          <li><b class="bg-me">22</b>Lebanon: army deploys south as monitors meet</li>
+          <li><b class="bg-me">23</b>Oman: Gulf states urge restraint after drone alerts</li>
+          <li><b class="bg-asia">24</b>China: Xi calls for stable US ties before the summit</li>
+          <li><b class="bg-asia">25</b>Japan: Takaichi unveils a stimulus package</li>
+          <li><b class="bg-asia">26</b>India: Akvan evacuations pass 204,000 in Odisha</li>
+          <li><b class="bg-asia">27</b>South Korea: ex-president's trial resumes</li>
+          <li><b class="bg-asia">28</b>Taiwan: chip exports rise as AI demand holds</li>
+        </ul>
+        <ul>
+          <li><b class="bg-asia">29</b>Thailand: tariff deal with the US takes shape</li>
+          <li><b class="bg-africa">30</b>Sudan: UN warns famine spreads as the war grinds on</li>
+          <li><b class="bg-africa">31</b>Egypt: hosts fresh Gaza aid talks in Cairo</li>
+          <li><b class="bg-americas">32</b>US: Supreme Court hears birthright citizenship case</li>
+          <li><b class="bg-americas">33</b>US: shutdown deadline looms as the House votes</li>
+          <li><b class="bg-americas">34</b>Mexico: cartel violence flares in Sinaloa</li>
+          <li><b class="bg-americas">35</b>Brazil: Congress debates amnesty for Bolsonaro allies</li>
+          <li><b class="bg-americas">36</b>Argentina: peso steadies after an IMF review</li>
+          <li><b class="bg-americas">37</b>Haiti: transitional council names an election date</li>
+          <li><b class="bg-americas">38</b>Venezuela: US pressure builds over oil licences</li>
+          <li><b class="bg-americas">39</b>US: House votes 427&ndash;1 to force Epstein files release</li>
+          <li><b class="bg-oceania">40</b>Australia: bushfire season opens early in Victoria</li>
+          <li><b class="bg-world">41</b>UN: Security Council deadlocked on a Gaza force</li>
+          <li><b class="bg-world">42</b>Markets: gold hits a record as the dollar slips</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="check">DATE CHECK</span> &mdash; Left out on purpose because they were first reported on 17 Nov, not today: Peltola's Alaska Senate win, Nvidia's $115.8bn quarter, the Prague train crash and Mongolia's president resigning. Cyclone Akvan formed on 16 Nov; card 11 is today's approach. Not yet: the Xi&ndash;Trump&ndash;Putin meeting is due Thursday 19 Nov. Every story here happened or was first reported on Wednesday 18 November 2026. Contested claims are marked as claims.<br>
+    <span class="src">Sources: Reuters, AP, AFP, Al Jazeera, Bloomberg, UN, NASA, IMD. Illustrations and maps drawn for this page; diagrams original.</span>
+  </div>
+
+</div>
+
+<script>
+// Filled-continent world map: equirectangular, lon -180..180, lat 90..-60.
+var CONTINENTS = [
+[[-168,66],[-158,58],[-152,60],[-140,60],[-135,58],[-130,54],[-125,49],[-124,42],[-120,34],[-114,29],[-110,24],[-105,20],[-97,26],[-93,30],[-89,30],[-84,30],[-81,26],[-80,32],[-76,35],[-75,39],[-74,40],[-70,42],[-68,44],[-65,44],[-60,47],[-55,52],[-60,55],[-64,58],[-68,58],[-72,62],[-78,62],[-85,66],[-92,66],[-95,69],[-110,68],[-125,70],[-140,70],[-155,71],[-165,68],[-168,66]],
+[[-58,64],[-52,60],[-43,60],[-32,68],[-22,70],[-20,74],[-30,76],[-45,76],[-58,74],[-58,64]],
+[[-79,9],[-77,4],[-80,-3],[-81,-6],[-77,-12],[-72,-18],[-70,-23],[-70,-30],[-72,-37],[-73,-44],[-74,-50],[-70,-54],[-66,-55],[-65,-47],[-62,-41],[-57,-38],[-52,-33],[-48,-28],[-41,-23],[-39,-17],[-35,-9],[-35,-6],[-40,-3],[-44,-2],[-50,0],[-53,4],[-58,6],[-62,9],[-68,11],[-72,12],[-77,8],[-79,9]],
+[[-17,15],[-16,20],[-15,27],[-10,31],[-6,35],[0,36],[10,37],[11,34],[20,32],[25,32],[30,31],[34,28],[35,24],[37,20],[39,15],[43,12],[48,11],[51,11],[51,5],[46,0],[41,-2],[40,-6],[40,-12],[36,-18],[33,-26],[28,-33],[20,-35],[16,-28],[13,-18],[12,-10],[9,-1],[9,4],[4,6],[-8,5],[-13,8],[-17,12],[-17,15]],
+[[-10,37],[-9,38],[-9,43],[-2,44],[-1,46],[-4,48],[-2,49],[0,50],[3,51],[5,53],[8,54],[8,57],[10,59],[5,58],[5,60],[5,62],[10,64],[13,66],[18,69],[25,71],[30,70],[35,68],[40,68],[44,66],[40,64],[38,60],[36,56],[34,52],[32,48],[30,46],[28,44],[24,42],[23,40],[22,37],[23,36],[26,38],[27,40],[30,36],[33,36],[36,36],[35,33],[33,31],[30,36],[-10,37]],
+[[-5,50],[-3,53],[-5,56],[-3,58],[-1,57],[0,53],[1,51],[-3,50],[-5,50]],
+[[-10,52],[-8,55],[-6,55],[-6,52],[-10,51],[-10,52]],
+[[30,36],[33,36],[36,36],[36,42],[40,44],[44,45],[48,46],[50,47],[52,50],[55,52],[58,55],[60,58],[65,62],[68,66],[72,68],[75,72],[80,73],[90,75],[100,76],[110,74],[120,73],[130,72],[140,72],[150,70],[158,66],[162,60],[158,52],[150,48],[142,45],[141,40],[135,35],[130,33],[127,35],[124,38],[120,34],[118,28],[112,22],[108,18],[105,10],[103,8],[100,7],[98,10],[97,16],[94,17],[91,22],[88,22],[86,20],[83,17],[80,13],[77,8],[75,12],[73,18],[70,20],[66,25],[62,25],[58,26],[54,27],[52,28],[50,30],[48,30],[44,30],[40,32],[38,36],[35,36],[33,36],[30,36]],
+[[113,-22],[114,-28],[115,-33],[118,-35],[124,-33],[129,-32],[132,-32],[136,-35],[138,-35],[140,-38],[145,-38],[150,-37],[153,-32],[153,-27],[150,-23],[146,-19],[143,-15],[142,-11],[136,-12],[132,-12],[128,-14],[124,-16],[120,-19],[116,-21],[113,-22]],
+[[131,-1],[136,-2],[141,-3],[146,-6],[150,-9],[147,-9],[142,-8],[138,-7],[134,-4],[131,-1]],
+[[109,1],[111,3],[114,4],[117,6],[119,1],[117,-2],[114,-3],[110,-2],[109,1]],
+[[95,5],[98,3],[101,0],[104,-3],[106,-6],[103,-5],[100,-1],[97,3],[95,5]],
+[[105,-6],[110,-7],[114,-8],[114,-7],[108,-6],[105,-6]],
+[[130,31],[132,33],[135,34],[137,35],[139,37],[141,39],[141,42],[140,44],[142,45],[140,42],[138,38],[136,36],[133,34],[130,31]],
+[[44,-16],[47,-15],[50,-16],[49,-20],[46,-24],[44,-22],[43,-18],[44,-16]],
+[[167,-45],[170,-42],[173,-40],[176,-38],[178,-38],[175,-41],[172,-43],[168,-46],[167,-45]]
+];
+// [story number, lat, lon, region color]
+var PINS = [
+  [1, 39.9, 116.4, "#7a4fa3"], [2, 29.3, 47.9, "#c66a1a"], [3, 50.8, 4.4, "#2b5ea7"],
+  [5, 36.9, 30.7, "#5a5a5a"], [6, 23.8, 90.4, "#7a4fa3"], [7, 50.4, 30.5, "#2b5ea7"],
+  [8, 45.4, -75.7, "#b3231b"], [9, 51.5, -0.1, "#2b5ea7"], [10, 38.9, -77.0, "#b3231b"],
+  [11, 20.3, 85.8, "#7a4fa3"], [12, 31.5, 34.5, "#c66a1a"], [13, 40.7, -74.0, "#b3231b"]
+];
+var DOTS = [
+  [14, 50.4, 30.5, "#2b5ea7"], [15, 45.8, 25.0, "#2b5ea7"], [16, 48.9, 2.3, "#2b5ea7"],
+  [17, 52.2, 21.0, "#2b5ea7"], [18, 51.5, -0.1, "#2b5ea7"], [19, 41.9, 12.5, "#2b5ea7"],
+  [20, 50.8, 4.4, "#2b5ea7"], [21, 31.8, 35.2, "#c66a1a"], [22, 33.9, 35.5, "#c66a1a"],
+  [23, 23.6, 58.4, "#c66a1a"], [24, 39.9, 116.4, "#7a4fa3"], [25, 35.7, 139.7, "#7a4fa3"],
+  [26, 20.3, 85.8, "#7a4fa3"], [27, 37.6, 127.0, "#7a4fa3"], [28, 25.0, 121.6, "#7a4fa3"],
+  [29, 13.8, 100.5, "#7a4fa3"], [30, 15.6, 32.5, "#2e7d4f"], [31, 30.0, 31.2, "#2e7d4f"],
+  [32, 38.9, -77.0, "#b3231b"], [33, 38.9, -77.0, "#b3231b"], [34, 19.4, -99.1, "#b3231b"],
+  [35, -15.8, -47.9, "#b3231b"], [36, -34.6, -58.4, "#b3231b"], [37, 18.5, -72.3, "#b3231b"],
+  [38, -10.0, -76.0, "#b3231b"], [39, 38.9, -77.0, "#b3231b"], [40, -37.8, 145.0, "#1f8a8a"],
+  [41, 40.7, -74.0, "#5a5a5a"], [42, 51.5, -0.1, "#5a5a5a"]
+];
+(function () {
+  var W = 348, H = 144, NS = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("width", W); svg.setAttribute("height", H);
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  function X(lon) { return (lon + 180) / 360 * W; }
+  function Y(lat) { return (90 - lat) / 150 * H; }
+  CONTINENTS.forEach(function (poly) {
+    var d = poly.map(function (pt, i) {
+      return (i ? "L" : "M") + X(pt[0]).toFixed(1) + "," + Y(pt[1]).toFixed(1);
+    }).join(" ") + " Z";
+    var p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d);
+    p.setAttribute("fill", "#c9b489");
+    p.setAttribute("stroke", "#8a7a52");
+    p.setAttribute("stroke-width", "0.6");
+    svg.appendChild(p);
+  });
+  // hairlines for crowded Europe/Middle East: nudge overlapping pins outward
+  var NUDGE = { 3: [14, -8], 7: [10, 8], 9: [-14, -10], 12: [12, 10], 5: [10, -10], 14: [8, 6], 20: [-12, 8], 21: [10, -8] };
+  function place(item, isPin) {
+    var n = item[0], lat = item[1], lon = item[2], col = item[3];
+    var x = X(lon), y = Y(lat);
+    var nd = NUDGE[n];
+    var tx = x, ty = y;
+    if (nd) { tx = x + nd[0]; ty = y + nd[1]; }
+    if (nd) {
+      var ln = document.createElementNS(NS, "line");
+      ln.setAttribute("x1", x); ln.setAttribute("y1", y);
+      ln.setAttribute("x2", tx); ln.setAttribute("y2", ty);
+      ln.setAttribute("stroke", col); ln.setAttribute("stroke-width", "0.8");
+      svg.appendChild(ln);
+    }
+    if (isPin) {
+      var c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", tx); c.setAttribute("cy", ty); c.setAttribute("r", 7);
+      c.setAttribute("fill", col); c.setAttribute("stroke", "#fff"); c.setAttribute("stroke-width", "1.2");
+      svg.appendChild(c);
+      var t = document.createElementNS(NS, "text");
+      t.setAttribute("x", tx); t.setAttribute("y", ty + 3);
+      t.setAttribute("text-anchor", "middle");
+      t.setAttribute("font-size", "8"); t.setAttribute("font-weight", "700");
+      t.setAttribute("fill", "#fff"); t.setAttribute("font-family", "sans-serif");
+      t.textContent = n;
+      svg.appendChild(t);
+    } else {
+      var d = document.createElementNS(NS, "circle");
+      d.setAttribute("cx", tx); d.setAttribute("cy", ty); d.setAttribute("r", 2.6);
+      d.setAttribute("fill", col); d.setAttribute("stroke", "#fff"); d.setAttribute("stroke-width", "0.7");
+      svg.appendChild(d);
+    }
+  }
+  DOTS.forEach(function (it) { place(it, false); });
+  PINS.forEach(function (it) { place(it, true); });
+  document.getElementById("map").appendChild(svg);
+})();
+</script>
+</body>
+</html>
