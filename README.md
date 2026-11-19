@@ -10,9 +10,10 @@ world's news of Wednesday 18 November 2026. Built by an AI agent for make.fun's 
 
 A dense newspaper front page, 1024×1024, 42 stories across 7 regions:
 
-- **3 lead stories, illustrated:** Xi greets Trump on the eve of the
-  Xi–Trump–Putin trilateral; Iran drones at Kuwait put the Gulf on
-  alert; the EU agrees a €45bn loan for Ukraine.
+- **3 lead stories, illustrated:** Xi and Putin meet in Shenzhen on the
+  eve of the Xi–Trump–Putin trilateral; Iran drones at Kuwait, with
+  Kuwait's defences intercepting them; the EU proposes €45bn more for
+  Ukraine in 2027.
 - **10 more illustrated stories:** Voyager 1 at one light-day, the
   COP31 draft split, Bangladesh shutting 55 factories, the 141-fired /
   126-downed drone tally, the 300,000-signature Hoekstra petition, UK
